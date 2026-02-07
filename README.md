@@ -101,7 +101,7 @@ Six scenario types are **held out from training entirely** to test zero-shot gen
 
 Each scene is a JSONL file: 1 header line (scene configuration) + 200 frame lines (object states).
 
-The dataset is available on Hugging Face: [`ICML-2026/physics-generaliztion`](https://huggingface.co/datasets/ICML-2026/physics-generaliztion)
+The dataset is available on Hugging Face: [`alexwortega/physics-scenarios`](https://huggingface.co/datasets/alexwortega/physics-scenarios)
 
 ### Data Format
 
@@ -319,18 +319,17 @@ python scripts/run_evaluation.py \
 - Full autoregressive rollout evaluation (100+ step trajectories)
 - GPT-from-scratch baseline comparison (custom architecture with muP scaling)
 - Energy and momentum conservation analysis
-- Paper submission to **ICML 2026**
 
 ---
 
 ## Citation
 
 ```bibtex
-@article{physicslmengine2026,
+@software{physicslmengine2026,
   title={PhysicsLLMEngine: Learning Rigid Body Dynamics via Next-Token Prediction},
   author={Wortega, Alex},
   year={2026},
-  note={ICML 2026 submission}
+  url={https://github.com/AlexWortega/PhysicsLLMEngine}
 }
 ```
 
