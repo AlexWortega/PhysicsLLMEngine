@@ -1,8 +1,13 @@
-# PhysicsLLMEngine
+# PhysicsLLMEngine v2.0
 
 **Training Language Models to Predict 2D Rigid Body Physics**
 
 > Can a 350M-parameter language model learn Newtonian mechanics from text alone?
+
+**🆕 v2.0 Updates:**
+- 5 new complex scenarios: particle_explosion, enhanced gravity_well, chain_reaction, fluid_sim, solar_system
+- Extended OOD evaluation suite
+- Improved visualization (Green = GT, Blue = LLM prediction)
 
 We fine-tune [LiquidAI/LFM2-350M](https://huggingface.co/LiquidAI/LFM2-350M) with LoRA to autoregressively predict the next state of a 2D physics simulation, given only a textual description of the scene. The model receives object positions, velocities, and scene configuration as structured text and must predict the next frame — effectively learning to simulate rigid-body dynamics.
 
@@ -15,7 +20,7 @@ We fine-tune [LiquidAI/LFM2-350M](https://huggingface.co/LiquidAI/LFM2-350M) wit
 
 ## Highlights
 
-- **30 diverse physics scenarios** across 6 categories — from billiards to angry birds
+- **35 diverse physics scenarios** across 6 categories — from billiards to particle explosions
 - **900K training scenes** (180M frames) generated with Pymunk/Chipmunk2D
 - **6 held-out scenario types** never seen during training for zero-shot generalization evaluation
 - **Sub-pixel prediction accuracy** on ballistic and constrained motion
