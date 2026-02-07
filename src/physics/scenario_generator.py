@@ -1686,11 +1686,14 @@ def _scenario_fluid_sim(rng, difficulty):
         body.velocity = (rng.uniform(-50, 50), 0)
         _add_body(sim, body, shape, 'circle', 0.8, 0.1, 0.3, {'radius': r})
     
-    # Add barriers to make it flow
+    # Add barriers to make it flow (static objects)
     for bx in [200, 400, 600]:
-        body, shape = create_rectangle((bx, 450), 80, 20, mass=0, friction=0.5, elasticity=0.2)
-        body.body_type = pymunk.Body.STATIC
-        _add_body(sim, body, shape, 'rectangle', 0, 0.5, 0.2, {'width': 80, 'height': 20})
+        body = pymunk.Body(body_type=pymunk.Body.STATIC)
+        body.position = (bx, 450)
+        shape = pymunk.Poly.create_box(body, (80, 20))
+        shape.friction = 0.5
+        shape.elasticity = 0.2
+        sim.add_static(body, shape)
     
     desc = f"Fluid sim: {n} particles flowing through barriers."
     return sim, _build_metadata(sim, "fluid_sim", "complex", difficulty, desc)
@@ -1705,9 +1708,9 @@ def _scenario_solar_system(rng, difficulty):
     create_u_box(sim)
     
     # Central "sun" (static)
-    sun_body, sun_shape = create_circle((400, 400), 40, mass=1000, friction=0, elasticity=1.0)
+    sun_body, sun_shape = create_circle((400, 400), 40, mass=1000, friction=0, elasticity=0.9)
     sun_body.body_type = pymunk.Body.STATIC
-    _add_body(sim, sun_body, sun_shape, 'circle', 1000, 0, 1.0, {'radius': 40})
+    _add_body(sim, sun_body, sun_shape, 'circle', 1000, 0, 0.9, {'radius': 40})
     
     n_planets = 3 + difficulty * 2  # 5-9 planets
     
@@ -1723,9 +1726,9 @@ def _scenario_solar_system(rng, difficulty):
         vy = speed * (angle % 1.57)
         
         r = rng.uniform(8, 15)
-        body, shape = create_circle((x, y), r, mass=1.0, friction=0, elasticity=1.0)
+        body, shape = create_circle((x, y), r, mass=1.0, friction=0, elasticity=0.9)
         body.velocity = (vx, vy)
-        _add_body(sim, body, shape, 'circle', 1.0, 0, 1.0, {'radius': r})
+        _add_body(sim, body, shape, 'circle', 1.0, 0, 0.9, {'radius': r})
     
     desc = f"Solar system: {n_planets} planets orbiting central sun."
     return sim, _build_metadata(sim, "solar_system", "complex", difficulty, desc)
