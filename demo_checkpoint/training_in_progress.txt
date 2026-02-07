@@ -1,0 +1,9 @@
+This repository contains the model card and configuration for LFM_Physics350M.
+
+The full trained weights (adapter_model.safetensors) will be uploaded after curriculum training completes.
+
+Current status: Stage 2/5 in progress
+
+For more information, see:
+- GitHub: https://github.com/AlexWortega/PhysicsLLMEngine
+- Dataset: https://huggingface.co/datasets/alexwortega/physics-scenarios
