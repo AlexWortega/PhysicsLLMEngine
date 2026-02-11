@@ -1,0 +1,3046 @@
+{
+  "zero_shot": {
+    "pong": [
+      {
+        "seed": 45409155,
+        "difficulty": 2,
+        "metadata": {
+          "scenario_type": "pong",
+          "scenario_category": "minigame",
+          "difficulty": 2,
+          "description": "Pong: 2 balls bouncing between two paddles.",
+          "object_count": 2,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 0.0,
+                "y": 10.0
+              },
+              "p2": {
+                "x": 800.0,
+                "y": 10.0
+              },
+              "friction": 0.3,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 0.0,
+                "y": 590.0
+              },
+              "p2": {
+                "x": 800.0,
+                "y": 590.0
+              },
+              "friction": 0.3,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 30.0,
+                "y": 285.2132
+              },
+              "p2": {
+                "x": 30.0,
+                "y": 365.2132
+              },
+              "friction": 0.3,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 770.0,
+                "y": 235.8037
+              },
+              "p2": {
+                "x": 770.0,
+                "y": 315.8037
+              },
+              "friction": 0.3,
+              "elasticity": 0.9
+            }
+          ],
+          "constraints": [],
+          "seed": 45409155
+        },
+        "num_objects": 2,
+        "frames_captured": 50
+      },
+      {
+        "seed": 26881119,
+        "difficulty": 3,
+        "metadata": {
+          "scenario_type": "pong",
+          "scenario_category": "minigame",
+          "difficulty": 3,
+          "description": "Pong: 3 balls bouncing between two paddles.",
+          "object_count": 3,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 0.0,
+                "y": 10.0
+              },
+              "p2": {
+                "x": 800.0,
+                "y": 10.0
+              },
+              "friction": 0.3,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 0.0,
+                "y": 590.0
+              },
+              "p2": {
+                "x": 800.0,
+                "y": 590.0
+              },
+              "friction": 0.3,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 30.0,
+                "y": 257.2564
+              },
+              "p2": {
+                "x": 30.0,
+                "y": 327.2564
+              },
+              "friction": 0.3,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 770.0,
+                "y": 239.5989
+              },
+              "p2": {
+                "x": 770.0,
+                "y": 309.5989
+              },
+              "friction": 0.3,
+              "elasticity": 0.9
+            }
+          ],
+          "constraints": [],
+          "seed": 26881119
+        },
+        "num_objects": 3,
+        "frames_captured": 50
+      },
+      {
+        "seed": 38417937,
+        "difficulty": 4,
+        "metadata": {
+          "scenario_type": "pong",
+          "scenario_category": "minigame",
+          "difficulty": 4,
+          "description": "Pong: 3 balls bouncing between two paddles.",
+          "object_count": 3,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 0.0,
+                "y": 10.0
+              },
+              "p2": {
+                "x": 800.0,
+                "y": 10.0
+              },
+              "friction": 0.3,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 0.0,
+                "y": 590.0
+              },
+              "p2": {
+                "x": 800.0,
+                "y": 590.0
+              },
+              "friction": 0.3,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 30.0,
+                "y": 224.0295
+              },
+              "p2": {
+                "x": 30.0,
+                "y": 284.0295
+              },
+              "friction": 0.3,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 770.0,
+                "y": 224.7872
+              },
+              "p2": {
+                "x": 770.0,
+                "y": 284.7872
+              },
+              "friction": 0.3,
+              "elasticity": 0.9
+            }
+          ],
+          "constraints": [],
+          "seed": 38417937
+        },
+        "num_objects": 3,
+        "frames_captured": 50
+      }
+    ],
+    "bowling": [
+      {
+        "seed": 94091496,
+        "difficulty": 2,
+        "metadata": {
+          "scenario_type": "bowling",
+          "scenario_category": "collision",
+          "difficulty": 2,
+          "description": "Bowling: heavy ball rolling at 6 pins arranged in 3 rows.",
+          "object_count": 7,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 94091496
+        },
+        "num_objects": 7,
+        "frames_captured": 50
+      },
+      {
+        "seed": 44611160,
+        "difficulty": 3,
+        "metadata": {
+          "scenario_type": "bowling",
+          "scenario_category": "collision",
+          "difficulty": 3,
+          "description": "Bowling: heavy ball rolling at 10 pins arranged in 4 rows.",
+          "object_count": 11,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 44611160
+        },
+        "num_objects": 11,
+        "frames_captured": 50
+      },
+      {
+        "seed": 83856313,
+        "difficulty": 4,
+        "metadata": {
+          "scenario_type": "bowling",
+          "scenario_category": "collision",
+          "difficulty": 4,
+          "description": "Bowling: heavy ball rolling at 10 pins arranged in 4 rows.",
+          "object_count": 11,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 83856313
+        },
+        "num_objects": 11,
+        "frames_captured": 50
+      }
+    ],
+    "ramp_roll": [
+      {
+        "seed": 12902953,
+        "difficulty": 2,
+        "metadata": {
+          "scenario_type": "ramp_roll",
+          "scenario_category": "ramp",
+          "difficulty": 2,
+          "description": "Ramp roll: 3 objects on a 27-degree incline.",
+          "object_count": 3,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 100.0,
+                "y": 400.0
+              },
+              "p2": {
+                "x": 456.4026,
+                "y": 218.4038
+              },
+              "friction": 0.4,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 456.4026,
+                "y": 218.4038
+              },
+              "p2": {
+                "x": 506.4026,
+                "y": 228.4038
+              },
+              "friction": 0.4,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 12902953
+        },
+        "num_objects": 3,
+        "frames_captured": 50
+      },
+      {
+        "seed": 74258656,
+        "difficulty": 3,
+        "metadata": {
+          "scenario_type": "ramp_roll",
+          "scenario_category": "ramp",
+          "difficulty": 3,
+          "description": "Ramp roll: 4 objects on a 33-degree incline.",
+          "object_count": 4,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 100.0,
+                "y": 400.0
+              },
+              "p2": {
+                "x": 435.4682,
+                "y": 182.1444
+              },
+              "friction": 0.4,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 435.4682,
+                "y": 182.1444
+              },
+              "p2": {
+                "x": 485.4682,
+                "y": 192.1444
+              },
+              "friction": 0.4,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 74258656
+        },
+        "num_objects": 4,
+        "frames_captured": 50
+      },
+      {
+        "seed": 12978471,
+        "difficulty": 4,
+        "metadata": {
+          "scenario_type": "ramp_roll",
+          "scenario_category": "ramp",
+          "difficulty": 4,
+          "description": "Ramp roll: 5 objects on a 39-degree incline.",
+          "object_count": 5,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 100.0,
+                "y": 400.0
+              },
+              "p2": {
+                "x": 410.8584,
+                "y": 148.2718
+              },
+              "friction": 0.4,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 410.8584,
+                "y": 148.2718
+              },
+              "p2": {
+                "x": 460.8584,
+                "y": 158.2718
+              },
+              "friction": 0.4,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 12978471
+        },
+        "num_objects": 5,
+        "frames_captured": 50
+      }
+    ],
+    "angry_birds": [
+      {
+        "seed": 75720608,
+        "difficulty": 2,
+        "metadata": {
+          "scenario_type": "angry_birds",
+          "scenario_category": "minigame",
+          "difficulty": 2,
+          "description": "Angry Birds: 2 projectiles aimed at structure of 16 blocks (4 layers).",
+          "object_count": 18,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 75720608
+        },
+        "num_objects": 18,
+        "frames_captured": 50
+      },
+      {
+        "seed": 18691279,
+        "difficulty": 3,
+        "metadata": {
+          "scenario_type": "angry_birds",
+          "scenario_category": "minigame",
+          "difficulty": 3,
+          "description": "Angry Birds: 3 projectiles aimed at structure of 25 blocks (5 layers).",
+          "object_count": 28,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 18691279
+        },
+        "num_objects": 28,
+        "frames_captured": 50
+      },
+      {
+        "seed": 27641657,
+        "difficulty": 4,
+        "metadata": {
+          "scenario_type": "angry_birds",
+          "scenario_category": "minigame",
+          "difficulty": 4,
+          "description": "Angry Birds: 3 projectiles aimed at structure of 36 blocks (6 layers).",
+          "object_count": 39,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 27641657
+        },
+        "num_objects": 39,
+        "frames_captured": 50
+      }
+    ],
+    "hourglass": [
+      {
+        "seed": 45645632,
+        "difficulty": 2,
+        "metadata": {
+          "scenario_type": "hourglass",
+          "scenario_category": "complex",
+          "difficulty": 2,
+          "description": "Hourglass: 22 balls in upper chamber falling through 30-pixel gap.",
+          "object_count": 22,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 250.0,
+                "y": 550.0
+              },
+              "p2": {
+                "x": 250.0,
+                "y": 320.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 550.0,
+                "y": 550.0
+              },
+              "p2": {
+                "x": 550.0,
+                "y": 320.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 250.0,
+                "y": 320.0
+              },
+              "p2": {
+                "x": 385.0,
+                "y": 300.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 550.0,
+                "y": 320.0
+              },
+              "p2": {
+                "x": 415.0,
+                "y": 300.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 385.0,
+                "y": 300.0
+              },
+              "p2": {
+                "x": 250.0,
+                "y": 280.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 415.0,
+                "y": 300.0
+              },
+              "p2": {
+                "x": 550.0,
+                "y": 280.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 250.0,
+                "y": 280.0
+              },
+              "p2": {
+                "x": 250.0,
+                "y": 50.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 550.0,
+                "y": 280.0
+              },
+              "p2": {
+                "x": 550.0,
+                "y": 50.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 250.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 550.0,
+                "y": 50.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 45645632
+        },
+        "num_objects": 22,
+        "frames_captured": 50
+      },
+      {
+        "seed": 95242381,
+        "difficulty": 3,
+        "metadata": {
+          "scenario_type": "hourglass",
+          "scenario_category": "complex",
+          "difficulty": 3,
+          "description": "Hourglass: 28 balls in upper chamber falling through 25-pixel gap.",
+          "object_count": 28,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 250.0,
+                "y": 550.0
+              },
+              "p2": {
+                "x": 250.0,
+                "y": 320.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 550.0,
+                "y": 550.0
+              },
+              "p2": {
+                "x": 550.0,
+                "y": 320.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 250.0,
+                "y": 320.0
+              },
+              "p2": {
+                "x": 387.5,
+                "y": 300.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 550.0,
+                "y": 320.0
+              },
+              "p2": {
+                "x": 412.5,
+                "y": 300.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 387.5,
+                "y": 300.0
+              },
+              "p2": {
+                "x": 250.0,
+                "y": 280.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 412.5,
+                "y": 300.0
+              },
+              "p2": {
+                "x": 550.0,
+                "y": 280.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 250.0,
+                "y": 280.0
+              },
+              "p2": {
+                "x": 250.0,
+                "y": 50.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 550.0,
+                "y": 280.0
+              },
+              "p2": {
+                "x": 550.0,
+                "y": 50.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 250.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 550.0,
+                "y": 50.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 95242381
+        },
+        "num_objects": 28,
+        "frames_captured": 50
+      },
+      {
+        "seed": 14349683,
+        "difficulty": 4,
+        "metadata": {
+          "scenario_type": "hourglass",
+          "scenario_category": "complex",
+          "difficulty": 4,
+          "description": "Hourglass: 34 balls in upper chamber falling through 20-pixel gap.",
+          "object_count": 34,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 250.0,
+                "y": 550.0
+              },
+              "p2": {
+                "x": 250.0,
+                "y": 320.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 550.0,
+                "y": 550.0
+              },
+              "p2": {
+                "x": 550.0,
+                "y": 320.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 250.0,
+                "y": 320.0
+              },
+              "p2": {
+                "x": 390.0,
+                "y": 300.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 550.0,
+                "y": 320.0
+              },
+              "p2": {
+                "x": 410.0,
+                "y": 300.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 390.0,
+                "y": 300.0
+              },
+              "p2": {
+                "x": 250.0,
+                "y": 280.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 410.0,
+                "y": 300.0
+              },
+              "p2": {
+                "x": 550.0,
+                "y": 280.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 250.0,
+                "y": 280.0
+              },
+              "p2": {
+                "x": 250.0,
+                "y": 50.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 550.0,
+                "y": 280.0
+              },
+              "p2": {
+                "x": 550.0,
+                "y": 50.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 250.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 550.0,
+                "y": 50.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 14349683
+        },
+        "num_objects": 34,
+        "frames_captured": 50
+      }
+    ],
+    "newtons_cradle": [
+      {
+        "seed": 66815656,
+        "difficulty": 2,
+        "metadata": {
+          "scenario_type": "newtons_cradle",
+          "scenario_category": "constraint",
+          "difficulty": 2,
+          "description": "Newton's cradle: 5 balls suspended by pins, rightmost pulled and released.",
+          "object_count": 5,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            }
+          ],
+          "constraints": [
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 0,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 1,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 2,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 3,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 4,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "seed": 66815656
+        },
+        "num_objects": 5,
+        "frames_captured": 50
+      },
+      {
+        "seed": 17615305,
+        "difficulty": 3,
+        "metadata": {
+          "scenario_type": "newtons_cradle",
+          "scenario_category": "constraint",
+          "difficulty": 3,
+          "description": "Newton's cradle: 6 balls suspended by pins, rightmost pulled and released.",
+          "object_count": 6,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            }
+          ],
+          "constraints": [
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 0,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 1,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 2,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 3,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 4,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 5,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "seed": 17615305
+        },
+        "num_objects": 6,
+        "frames_captured": 50
+      },
+      {
+        "seed": 33658744,
+        "difficulty": 4,
+        "metadata": {
+          "scenario_type": "newtons_cradle",
+          "scenario_category": "constraint",
+          "difficulty": 4,
+          "description": "Newton's cradle: 7 balls suspended by pins, rightmost pulled and released.",
+          "object_count": 7,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            }
+          ],
+          "constraints": [
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 0,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 1,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 2,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 3,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 4,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 5,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 6,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "seed": 33658744
+        },
+        "num_objects": 7,
+        "frames_captured": 50
+      }
+    ]
+  },
+  "ood_difficulty": {
+    "billiards": {
+      "0": {
+        "success": true,
+        "num_objects": 2,
+        "metadata": {
+          "scenario_type": "billiards",
+          "scenario_category": "collision",
+          "difficulty": 0,
+          "description": "Billiards: cue ball strikes a triangle of 1 balls on a smooth table.",
+          "object_count": 2,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            }
+          ],
+          "constraints": [],
+          "seed": 24724653
+        }
+      },
+      "6": {
+        "success": true,
+        "num_objects": 29,
+        "metadata": {
+          "scenario_type": "billiards",
+          "scenario_category": "collision",
+          "difficulty": 6,
+          "description": "Billiards: cue ball strikes a triangle of 28 balls on a smooth table.",
+          "object_count": 29,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            }
+          ],
+          "constraints": [],
+          "seed": 77773291
+        }
+      },
+      "7": {
+        "success": true,
+        "num_objects": 37,
+        "metadata": {
+          "scenario_type": "billiards",
+          "scenario_category": "collision",
+          "difficulty": 7,
+          "description": "Billiards: cue ball strikes a triangle of 36 balls on a smooth table.",
+          "object_count": 37,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            }
+          ],
+          "constraints": [],
+          "seed": 99882898
+        }
+      },
+      "8": {
+        "success": true,
+        "num_objects": 46,
+        "metadata": {
+          "scenario_type": "billiards",
+          "scenario_category": "collision",
+          "difficulty": 8,
+          "description": "Billiards: cue ball strikes a triangle of 45 balls on a smooth table.",
+          "object_count": 46,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            }
+          ],
+          "constraints": [],
+          "seed": 68070112
+        }
+      },
+      "9": {
+        "success": true,
+        "num_objects": 56,
+        "metadata": {
+          "scenario_type": "billiards",
+          "scenario_category": "collision",
+          "difficulty": 9,
+          "description": "Billiards: cue ball strikes a triangle of 55 balls on a smooth table.",
+          "object_count": 56,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            }
+          ],
+          "constraints": [],
+          "seed": 76977897
+        }
+      },
+      "10": {
+        "success": true,
+        "num_objects": 67,
+        "metadata": {
+          "scenario_type": "billiards",
+          "scenario_category": "collision",
+          "difficulty": 10,
+          "description": "Billiards: cue ball strikes a triangle of 66 balls on a smooth table.",
+          "object_count": 67,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.05,
+              "elasticity": 0.9
+            }
+          ],
+          "constraints": [],
+          "seed": 59005351
+        }
+      }
+    },
+    "tower": {
+      "0": {
+        "success": true,
+        "num_objects": 3,
+        "metadata": {
+          "scenario_type": "tower",
+          "scenario_category": "stacking",
+          "difficulty": 0,
+          "description": "Tower: 3 blocks stacked vertically.",
+          "object_count": 3,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 16302608
+        }
+      },
+      "6": {
+        "success": true,
+        "num_objects": 22,
+        "metadata": {
+          "scenario_type": "tower",
+          "scenario_category": "stacking",
+          "difficulty": 6,
+          "description": "Tower: 21 blocks stacked vertically, with toppler ball.",
+          "object_count": 22,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 45662587
+        }
+      },
+      "7": {
+        "success": true,
+        "num_objects": 25,
+        "metadata": {
+          "scenario_type": "tower",
+          "scenario_category": "stacking",
+          "difficulty": 7,
+          "description": "Tower: 24 blocks stacked vertically, with toppler ball.",
+          "object_count": 25,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 97786759
+        }
+      },
+      "8": {
+        "success": true,
+        "num_objects": 28,
+        "metadata": {
+          "scenario_type": "tower",
+          "scenario_category": "stacking",
+          "difficulty": 8,
+          "description": "Tower: 27 blocks stacked vertically, with toppler ball.",
+          "object_count": 28,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 27131544
+        }
+      },
+      "9": {
+        "success": true,
+        "num_objects": 31,
+        "metadata": {
+          "scenario_type": "tower",
+          "scenario_category": "stacking",
+          "difficulty": 9,
+          "description": "Tower: 30 blocks stacked vertically, with toppler ball.",
+          "object_count": 31,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 26253166
+        }
+      },
+      "10": {
+        "success": true,
+        "num_objects": 34,
+        "metadata": {
+          "scenario_type": "tower",
+          "scenario_category": "stacking",
+          "difficulty": 10,
+          "description": "Tower: 33 blocks stacked vertically, with toppler ball.",
+          "object_count": 34,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 10.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            },
+            {
+              "type": "segment",
+              "p1": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 590.0
+              },
+              "friction": 0.5,
+              "elasticity": 0.3
+            }
+          ],
+          "constraints": [],
+          "seed": 13296630
+        }
+      }
+    },
+    "pendulum": {
+      "0": {
+        "success": true,
+        "num_objects": 0,
+        "metadata": {
+          "scenario_type": "pendulum",
+          "scenario_category": "constraint",
+          "difficulty": 0,
+          "description": "Pendulum: 0 pendulum released from angle.",
+          "object_count": 0,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            }
+          ],
+          "constraints": [],
+          "seed": 84245151
+        }
+      },
+      "6": {
+        "success": true,
+        "num_objects": 7,
+        "metadata": {
+          "scenario_type": "pendulum",
+          "scenario_category": "constraint",
+          "difficulty": 6,
+          "description": "Pendulum: 6 pendulums (one double) released from angle.",
+          "object_count": 7,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            }
+          ],
+          "constraints": [
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 0,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": 0,
+              "body_b": 1,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 2,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 3,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 4,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 5,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 6,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "seed": 44633097
+        }
+      },
+      "7": {
+        "success": true,
+        "num_objects": 8,
+        "metadata": {
+          "scenario_type": "pendulum",
+          "scenario_category": "constraint",
+          "difficulty": 7,
+          "description": "Pendulum: 7 pendulums (one double) released from angle.",
+          "object_count": 8,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            }
+          ],
+          "constraints": [
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 0,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": 0,
+              "body_b": 1,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 2,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 3,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 4,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 5,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 6,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 7,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "seed": 43518899
+        }
+      },
+      "8": {
+        "success": true,
+        "num_objects": 9,
+        "metadata": {
+          "scenario_type": "pendulum",
+          "scenario_category": "constraint",
+          "difficulty": 8,
+          "description": "Pendulum: 8 pendulums (one double) released from angle.",
+          "object_count": 9,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            }
+          ],
+          "constraints": [
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 0,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": 0,
+              "body_b": 1,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 2,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 3,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 4,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 5,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 6,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 7,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 8,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "seed": 81514655
+        }
+      },
+      "9": {
+        "success": true,
+        "num_objects": 10,
+        "metadata": {
+          "scenario_type": "pendulum",
+          "scenario_category": "constraint",
+          "difficulty": 9,
+          "description": "Pendulum: 9 pendulums (one double) released from angle.",
+          "object_count": 10,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            }
+          ],
+          "constraints": [
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 0,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": 0,
+              "body_b": 1,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 2,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 3,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 4,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 5,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 6,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 7,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 8,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 9,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "seed": 86107421
+        }
+      },
+      "10": {
+        "success": true,
+        "num_objects": 11,
+        "metadata": {
+          "scenario_type": "pendulum",
+          "scenario_category": "constraint",
+          "difficulty": 10,
+          "description": "Pendulum: 10 pendulums (one double) released from angle.",
+          "object_count": 11,
+          "static_geometry": [
+            {
+              "type": "segment",
+              "p1": {
+                "x": 10.0,
+                "y": 50.0
+              },
+              "p2": {
+                "x": 790.0,
+                "y": 50.0
+              },
+              "friction": 0.8,
+              "elasticity": 0.5
+            }
+          ],
+          "constraints": [
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 0,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": 0,
+              "body_b": 1,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 2,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 3,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 4,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 5,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 6,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 7,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 8,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 9,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "type": "PinJoint",
+              "body_a": "static",
+              "body_b": 10,
+              "anchor_a": [
+                0.0,
+                0.0
+              ],
+              "anchor_b": [
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "seed": 18410144
+        }
+      }
+    }
+  },
+  "parameter_extrapolation": {
+    "extreme_gravity": [
+      {
+        "gravity_y": -5000,
+        "success": true
+      },
+      {
+        "gravity_y": -2000,
+        "success": true
+      },
+      {
+        "gravity_y": -100,
+        "success": true
+      },
+      {
+        "gravity_y": 0,
+        "success": true
+      },
+      {
+        "gravity_y": 500,
+        "success": true
+      },
+      {
+        "gravity_y": 2000,
+        "success": true
+      }
+    ],
+    "extreme_friction": [
+      {
+        "friction": 0.0,
+        "success": true
+      },
+      {
+        "friction": 0.001,
+        "success": true
+      },
+      {
+        "friction": 0.1,
+        "success": true
+      },
+      {
+        "friction": 0.5,
+        "success": true
+      },
+      {
+        "friction": 0.9,
+        "success": true
+      },
+      {
+        "friction": 0.99,
+        "success": true
+      }
+    ],
+    "extreme_mass": [
+      {
+        "mass_ratio": 1,
+        "success": true
+      },
+      {
+        "mass_ratio": 10,
+        "success": true
+      },
+      {
+        "mass_ratio": 100,
+        "success": true
+      },
+      {
+        "mass_ratio": 1000,
+        "success": true
+      },
+      {
+        "mass_ratio": 10000,
+        "success": true
+      }
+    ]
+  },
+  "compositional": {
+    "pendulum_projectile": {
+      "error": "Body already added to another space."
+    },
+    "tower_bowling": {
+      "error": "Body already added to another space."
+    }
+  },
+  "physical_laws": {
+    "energy_conservation": [
+      {
+        "success": true,
+        "loss_pct": 1.970199500000017
+      }
+    ],
+    "momentum_conservation": [
+      {
+        "success": true,
+        "change_pct": 0.0
+      }
+    ]
+  }
+}
