@@ -1,0 +1,242 @@
+[
+  {
+    "scenario_type": "pong",
+    "difficulty": 3,
+    "seed": 94480277,
+    "num_objects": 3,
+    "context_frames": 10,
+    "predict_frames": 5,
+    "baselines": {
+      "frame_1": {
+        "constant_mse": 40.50000000000018,
+        "linear_mse": 0.0,
+        "gravity_only_mse": 0.03712812500000733
+      },
+      "frame_2": {
+        "constant_mse": 162.0000000000007,
+        "linear_mse": 40.50000000000018,
+        "gravity_only_mse": 41.13044653581684
+      },
+      "frame_3": {
+        "constant_mse": 364.5000000000016,
+        "linear_mse": 162.0000000000007,
+        "gravity_only_mse": 163.22376494663405
+      },
+      "frame_4": {
+        "constant_mse": 648.0000000000028,
+        "linear_mse": 364.5000000000016,
+        "gravity_only_mse": 366.31708335745157
+      },
+      "frame_5": {
+        "constant_mse": 1012.5000000000044,
+        "linear_mse": 648.0000000000028,
+        "gravity_only_mse": 650.4104017682695
+      }
+    },
+    "average_mse": {
+      "constant": 445.500000000002,
+      "linear": 243.00000000000108,
+      "gravity_only": 244.2237649466344
+    }
+  },
+  {
+    "scenario_type": "bowling",
+    "difficulty": 3,
+    "seed": 29929496,
+    "num_objects": 11,
+    "context_frames": 10,
+    "predict_frames": 5,
+    "baselines": {
+      "frame_1": {
+        "constant_mse": 2.2609443833258713,
+        "linear_mse": 0.03068371315628207,
+        "gravity_only_mse": 0.10225450925409044
+      },
+      "frame_2": {
+        "constant_mse": 9.383796965581796,
+        "linear_mse": 2.5239912819364,
+        "gravity_only_mse": 2.3413870281303146
+      },
+      "frame_3": {
+        "constant_mse": 21.93509440415655,
+        "linear_mse": 10.281344939860496,
+        "gravity_only_mse": 9.817078122469102
+      },
+      "frame_4": {
+        "constant_mse": 37.31146534951818,
+        "linear_mse": 21.564908599814814,
+        "gravity_only_mse": 20.889453125122344
+      },
+      "frame_5": {
+        "constant_mse": 58.85657275065094,
+        "linear_mse": 38.76541581089556,
+        "gravity_only_mse": 37.850209143404385
+      }
+    },
+    "average_mse": {
+      "constant": 25.949574770646667,
+      "linear": 14.633268869132712,
+      "gravity_only": 14.200076385676047
+    }
+  },
+  {
+    "scenario_type": "ramp_roll",
+    "difficulty": 3,
+    "seed": 86497017,
+    "num_objects": 4,
+    "context_frames": 10,
+    "predict_frames": 5,
+    "baselines": {
+      "frame_1": {
+        "constant_mse": 0.509179472242016,
+        "linear_mse": 0.004494232971736714,
+        "gravity_only_mse": 0.05045174188406261
+      },
+      "frame_2": {
+        "constant_mse": 2.214051513319969,
+        "linear_mse": 0.648996673680895,
+        "gravity_only_mse": 0.5666763488538358
+      },
+      "frame_3": {
+        "constant_mse": 5.400432158358427,
+        "linear_mse": 2.689414201632178,
+        "gravity_only_mse": 2.4659334665154833
+      },
+      "frame_4": {
+        "constant_mse": 10.380609382067377,
+        "linear_mse": 6.437648494281299,
+        "gravity_only_mse": 6.060132819337544
+      },
+      "frame_5": {
+        "constant_mse": 17.49656189013775,
+        "linear_mse": 12.234831945332008,
+        "gravity_only_mse": 11.690349083601518
+      }
+    },
+    "average_mse": {
+      "constant": 7.2001668832251084,
+      "linear": 4.403077109579623,
+      "gravity_only": 4.166708692038489
+    }
+  },
+  {
+    "scenario_type": "angry_birds",
+    "difficulty": 2,
+    "seed": 90136637,
+    "num_objects": 18,
+    "context_frames": 10,
+    "predict_frames": 5,
+    "baselines": {
+      "frame_1": {
+        "constant_mse": 2.846461286352679,
+        "linear_mse": 0.004818541755086541,
+        "gravity_only_mse": 0.06294379737615935
+      },
+      "frame_2": {
+        "constant_mse": 11.154244443805624,
+        "linear_mse": 2.758067542767766,
+        "gravity_only_mse": 2.959188571503003
+      },
+      "frame_3": {
+        "constant_mse": 24.578309254034842,
+        "linear_mse": 10.74982682092761,
+        "gravity_only_mse": 11.062830730038963
+      },
+      "frame_4": {
+        "constant_mse": 42.83912175185125,
+        "linear_mse": 23.69607742818554,
+        "gravity_only_mse": 24.09544814234994
+      },
+      "frame_5": {
+        "constant_mse": 65.72955529987253,
+        "linear_mse": 41.37941668899581,
+        "gravity_only_mse": 41.85145736875222
+      }
+    },
+    "average_mse": {
+      "constant": 29.429538407183383,
+      "linear": 15.717641404526365,
+      "gravity_only": 16.00637372200406
+    }
+  },
+  {
+    "scenario_type": "hourglass",
+    "difficulty": 2,
+    "seed": 22302496,
+    "num_objects": 22,
+    "context_frames": 10,
+    "predict_frames": 5,
+    "baselines": {
+      "frame_1": {
+        "constant_mse": 3.717035585099919,
+        "linear_mse": 0.0005252962925453367,
+        "gravity_only_mse": 0.037283642411808655
+      },
+      "frame_2": {
+        "constant_mse": 15.46357971897807,
+        "linear_mse": 4.175317484119862,
+        "gravity_only_mse": 3.4549006356341043
+      },
+      "frame_3": {
+        "constant_mse": 35.541437016674664,
+        "linear_mse": 16.806452306058535,
+        "gravity_only_mse": 15.341363209997047
+      },
+      "frame_4": {
+        "constant_mse": 67.56152045320665,
+        "linear_mse": 40.6922240865724,
+        "gravity_only_mse": 38.41370382490916
+      },
+      "frame_5": {
+        "constant_mse": 113.8913060582779,
+        "linear_mse": 78.22878187812607,
+        "gravity_only_mse": 75.07093883511115
+      }
+    },
+    "average_mse": {
+      "constant": 47.23497576644744,
+      "linear": 27.980660210233886,
+      "gravity_only": 26.463638029612657
+    }
+  },
+  {
+    "scenario_type": "newtons_cradle",
+    "difficulty": 3,
+    "seed": 95990980,
+    "num_objects": 6,
+    "context_frames": 10,
+    "predict_frames": 5,
+    "baselines": {
+      "frame_1": {
+        "constant_mse": 0.3453876916579787,
+        "linear_mse": 0.0,
+        "gravity_only_mse": 0.03712812500000346
+      },
+      "frame_2": {
+        "constant_mse": 1.5179017067864553,
+        "linear_mse": 0.415188587334862,
+        "gravity_only_mse": 0.3793800123177804
+      },
+      "frame_3": {
+        "constant_mse": 3.734009978618515,
+        "linear_mse": 1.8082625012038225,
+        "gravity_only_mse": 1.694053336831734
+      },
+      "frame_4": {
+        "constant_mse": 7.225124810813667,
+        "linear_mse": 4.411603099892731,
+        "gravity_only_mse": 4.213839677092207
+      },
+      "frame_5": {
+        "constant_mse": 12.236262376038484,
+        "linear_mse": 8.471334988769373,
+        "gravity_only_mse": 8.185200543194641
+      }
+    },
+    "average_mse": {
+      "constant": 5.011737312783021,
+      "linear": 3.021277835440158,
+      "gravity_only": 2.9019203388872734
+    }
+  }
+]
