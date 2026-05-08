@@ -12,14 +12,19 @@ tags:
 library_name: transformers
 pipeline_tag: text-generation
 datasets:
-- alexwortega/physics-scenarios
+- AlexWortega/physics-scenarios-packed
 ---
 
-# LFM_Physics350M
+# lfm2-scenarios
 
 **A 350M-parameter language model fine-tuned to predict 2D rigid body physics from text.**
 
-This model is a LoRA fine-tune of [LiquidAI/LFM2-350M](https://huggingface.co/LiquidAI/LFM2-350M) trained on 900,000 physics simulation scenes across 35 scenario types. Given a textual description of object positions, velocities, and scene configuration, the model autoregressively predicts the next frame of a physics simulation — effectively learning Newtonian mechanics through next-token prediction.
+This model is a LoRA fine-tune of [LiquidAI/LFM2-350M](https://huggingface.co/LiquidAI/LFM2-350M) trained on 900,000 physics simulation scenes across 30 scenario types. Given a textual description of object positions, velocities, and scene configuration, the model autoregressively predicts the next frame of a physics simulation — effectively learning Newtonian mechanics through next-token prediction.
+
+**Downloads:**
+- Merged weights: [AlexWortega/lfm2-scenarios](https://huggingface.co/AlexWortega/lfm2-scenarios)
+- ONNX q4 (WebGPU/browser): [AlexWortega/lfm2-scenarios-ONNX](https://huggingface.co/AlexWortega/lfm2-scenarios-ONNX)
+- GGUF Q4_K_M (llama.cpp): [AlexWortega/lfm2-scenarios-GGUF](https://huggingface.co/AlexWortega/lfm2-scenarios-GGUF)
 
 ## Model Description
 
@@ -123,20 +128,17 @@ Given frames 1..N, the model predicts frame N+1 autoregressively.
 
 ## Usage
 
+### Python (merged weights)
+
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from peft import PeftModel
 
-# Load base model
-base_model = AutoModelForCausalLM.from_pretrained(
-    "LiquidAI/LFM2-350M",
+model = AutoModelForCausalLM.from_pretrained(
+    "AlexWortega/lfm2-scenarios",
     torch_dtype="bfloat16",
-    device_map="auto"
+    device_map="auto",
 )
-
-# Load LoRA adapter
-model = PeftModel.from_pretrained(base_model, "alexwortega/LFM_Physics350M")
-tokenizer = AutoTokenizer.from_pretrained("LiquidAI/LFM2-350M")
+tokenizer = AutoTokenizer.from_pretrained("AlexWortega/lfm2-scenarios")
 
 # Prepare input (scene description + context frames)
 prompt = """Scene: 2 objects (1 circle, 1 rectangle). Gravity: (0.00, -981.00). Timestep: 0.0167.
@@ -188,7 +190,7 @@ See [scenario gallery](https://github.com/AlexWortega/PhysicsLLMEngine#scenario-
 
 ## Training Data
 
-The model was trained on the [alexwortega/physics-scenarios](https://huggingface.co/datasets/alexwortega/physics-scenarios) dataset:
+The model was trained on the [AlexWortega/physics-scenarios-packed](https://huggingface.co/datasets/AlexWortega/physics-scenarios-packed) dataset:
 
 - **900,000 training scenes** (24 scenario types)
 - **100,020 validation scenes** (all 35 types including 6 held-out)
@@ -208,7 +210,7 @@ This model simulates rigid body physics and has no direct ethical implications. 
   title={LFM_Physics350M: Learning Rigid Body Dynamics via Next-Token Prediction},
   author={Wortega, Alex},
   year={2026},
-  url={https://huggingface.co/alexwortega/LFM_Physics350M}
+  url={https://huggingface.co/AlexWortega/lfm2-scenarios}
 }
 ```
 
@@ -216,9 +218,24 @@ This model simulates rigid body physics and has no direct ethical implications. 
 
 MIT License. See [LICENSE](https://github.com/AlexWortega/PhysicsLLMEngine/blob/main/LICENSE) for details.
 
+## Browser Demo
+
+Run the model entirely in the browser via WebGPU/WASM — no server needed:
+
+```bash
+cd browser_demo && npm install && npm run dev
+```
+
+The demo loads the [ONNX q4 weights](https://huggingface.co/AlexWortega/lfm2-scenarios-ONNX) (458 MB) directly from HF CDN and runs autoregressive rollout with a Konva canvas visualization and live token stream.
+
 ## Links
 
 - **GitHub:** [AlexWortega/PhysicsLLMEngine](https://github.com/AlexWortega/PhysicsLLMEngine)
-- **Dataset:** [alexwortega/physics-scenarios](https://huggingface.co/datasets/alexwortega/physics-scenarios)
+- **Browser demo:** [browser_demo/](https://github.com/AlexWortega/PhysicsLLMEngine/tree/main/browser_demo)
+- **Inference scripts:** [inference/](https://github.com/AlexWortega/PhysicsLLMEngine/tree/main/inference)
+- **Merged model:** [AlexWortega/lfm2-scenarios](https://huggingface.co/AlexWortega/lfm2-scenarios)
+- **ONNX (WebGPU):** [AlexWortega/lfm2-scenarios-ONNX](https://huggingface.co/AlexWortega/lfm2-scenarios-ONNX)
+- **GGUF (llama.cpp):** [AlexWortega/lfm2-scenarios-GGUF](https://huggingface.co/AlexWortega/lfm2-scenarios-GGUF)
+- **Dataset:** [AlexWortega/physics-scenarios-packed](https://huggingface.co/datasets/AlexWortega/physics-scenarios-packed)
 - **Base Model:** [LiquidAI/LFM2-350M](https://huggingface.co/LiquidAI/LFM2-350M)
 - **Framework:** [Unsloth](https://github.com/unslothai/unsloth)

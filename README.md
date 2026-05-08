@@ -1,13 +1,14 @@
-# PhysicsLLMEngine v2.0
+# PhysicsLLMEngine
 
 **Training Language Models to Predict 2D Rigid Body Physics**
 
 > Can a 350M-parameter language model learn Newtonian mechanics from text alone?
 
-**🆕 v2.0 Updates:**
-- 5 new complex scenarios: particle_explosion, enhanced gravity_well, chain_reaction, fluid_sim, solar_system
-- Extended OOD evaluation suite
-- Improved visualization (Green = GT, Blue = LLM prediction)
+[![Model](https://img.shields.io/badge/🤗%20Model-lfm2--scenarios-blue)](https://huggingface.co/AlexWortega/lfm2-scenarios)
+[![ONNX](https://img.shields.io/badge/🤗%20ONNX-lfm2--scenarios--ONNX-blue)](https://huggingface.co/AlexWortega/lfm2-scenarios-ONNX)
+[![GGUF](https://img.shields.io/badge/🤗%20GGUF-lfm2--scenarios--GGUF-blue)](https://huggingface.co/AlexWortega/lfm2-scenarios-GGUF)
+[![Dataset](https://img.shields.io/badge/🤗%20Dataset-physics--scenarios--packed-green)](https://huggingface.co/datasets/AlexWortega/physics-scenarios-packed)
+[![GitHub](https://img.shields.io/badge/GitHub-PhysicsLLMEngine-black)](https://github.com/AlexWortega/PhysicsLLMEngine)
 
 We fine-tune [LiquidAI/LFM2-350M](https://huggingface.co/LiquidAI/LFM2-350M) with LoRA to autoregressively predict the next state of a 2D physics simulation, given only a textual description of the scene. The model receives object positions, velocities, and scene configuration as structured text and must predict the next frame — effectively learning to simulate rigid-body dynamics.
 
@@ -101,7 +102,9 @@ Six scenario types are **held out from training entirely** to test zero-shot gen
 
 Each scene is a JSONL file: 1 header line (scene configuration) + 200 frame lines (object states).
 
-The dataset is available on Hugging Face: [`alexwortega/physics-scenarios`](https://huggingface.co/datasets/alexwortega/physics-scenarios)
+The dataset is available on Hugging Face:
+- [`AlexWortega/physics-scenarios-packed`](https://huggingface.co/datasets/AlexWortega/physics-scenarios-packed) — tar.gz packed, recommended for download
+- [`AlexWortega/physics-scenarios-raw`](https://huggingface.co/datasets/AlexWortega/physics-scenarios-raw) — raw JSONL files
 
 ### Data Format
 
@@ -140,6 +143,9 @@ The model is trained to predict `Frame N+1` given the header and frames 1..N.
 | Component | Details |
 |---|---|
 | Base model | [LiquidAI/LFM2-350M](https://huggingface.co/LiquidAI/LFM2-350M) |
+| Fine-tuned model | [AlexWortega/lfm2-scenarios](https://huggingface.co/AlexWortega/lfm2-scenarios) |
+| ONNX (WebGPU) | [AlexWortega/lfm2-scenarios-ONNX](https://huggingface.co/AlexWortega/lfm2-scenarios-ONNX) |
+| GGUF (llama.cpp) | [AlexWortega/lfm2-scenarios-GGUF](https://huggingface.co/AlexWortega/lfm2-scenarios-GGUF) |
 | Fine-tuning | LoRA (r=32, alpha=64) via [Unsloth](https://github.com/unslothai/unsloth) |
 | Sequence length | 8192 tokens |
 | Precision | bfloat16 |
@@ -276,12 +282,46 @@ PhysicsLLMEngine/
 │   ├── train_scratch.py            # GPT from-scratch baseline
 │   ├── generate_scenarios_dataset.py
 │   └── run_evaluation.py
+├── browser_demo/                   # WebGPU browser simulation demo
+│   ├── src/
+│   │   ├── transformersEngine.ts   # HF transformers.js + ONNX inference
+│   │   ├── streamClient.ts         # Autoregressive rollout logic
+│   │   ├── App.tsx                 # React UI (canvas + token stream)
+│   │   └── promptFormat.ts         # Text prompt serialization
+│   └── backend/
+│       ├── server.py               # FastAPI scenario server
+│       └── examples/               # 30 bundled demo scenarios (JSONL)
+├── inference/                      # Local Python inference & eval tools
+│   ├── repro.py                    # Single-step local repro
+│   ├── multistep.py                # Multi-step rollout diagnostics
+│   ├── bench.py                    # Speed benchmark (ONNX)
+│   ├── make_gifs.py                # Batch 200-frame rollout → GIFs
+│   └── patch_onnx_v2.py            # Patch LoRA weights into ONNX graph
 └── assets/                         # Scenario GIFs and gallery
 ```
 
 ---
 
 ## Quick Start
+
+### Run the browser demo locally
+```bash
+cd browser_demo
+npm install
+npm run dev         # Vite dev server → http://localhost:5173
+# (backend optional — scenarios are bundled)
+```
+The demo loads [AlexWortega/lfm2-scenarios-ONNX](https://huggingface.co/AlexWortega/lfm2-scenarios-ONNX) (458 MB q4) via WebGPU/WASM directly in the browser.
+
+### Local inference (Python / GGUF)
+```bash
+pip install llama-cpp-python matplotlib pillow
+# model: https://huggingface.co/AlexWortega/lfm2-scenarios-GGUF
+cd inference
+python repro.py billiards 5            # single-step repro
+python multistep.py orbit 50           # 50-frame rollout
+python make_gifs.py --frames 200 --out ./gifs  # all 30 demos → GIFs
+```
 
 ### Generate a dataset
 ```bash
@@ -319,6 +359,7 @@ python scripts/run_evaluation.py \
 - Full autoregressive rollout evaluation (100+ step trajectories)
 - GPT-from-scratch baseline comparison (custom architecture with muP scaling)
 - Energy and momentum conservation analysis
+- q4f16 ONNX for faster WebGPU inference (blocked by Cast op type constraint)
 
 ---
 
