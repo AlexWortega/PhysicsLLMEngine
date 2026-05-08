@@ -1,350 +1,254 @@
-# PhysicsLLMEngine
-
-**Training Language Models to Predict 2D Rigid Body Physics**
-
-> Can a 350M-parameter language model learn Newtonian mechanics from text alone?
-
-[![Model](https://img.shields.io/badge/🤗%20Model-lfm2--scenarios-blue)](https://huggingface.co/AlexWortega/lfm2-scenarios)
-[![ONNX](https://img.shields.io/badge/🤗%20ONNX-lfm2--scenarios--ONNX-blue)](https://huggingface.co/AlexWortega/lfm2-scenarios-ONNX)
-[![GGUF](https://img.shields.io/badge/🤗%20GGUF-lfm2--scenarios--GGUF-blue)](https://huggingface.co/AlexWortega/lfm2-scenarios-GGUF)
-[![Dataset](https://img.shields.io/badge/🤗%20Dataset-physics--scenarios--packed-green)](https://huggingface.co/datasets/AlexWortega/physics-scenarios-packed)
-[![GitHub](https://img.shields.io/badge/GitHub-PhysicsLLMEngine-black)](https://github.com/AlexWortega/PhysicsLLMEngine)
-
-We fine-tune [LiquidAI/LFM2-350M](https://huggingface.co/LiquidAI/LFM2-350M) with LoRA to autoregressively predict the next state of a 2D physics simulation, given only a textual description of the scene. The model receives object positions, velocities, and scene configuration as structured text and must predict the next frame — effectively learning to simulate rigid-body dynamics.
+<h1 align="center">⚙️ PhysicsLLMEngine</h1>
 
 <p align="center">
-  <img src="assets/gallery.png" alt="All 30 scenario types" width="100%"/>
+  <b>Teaching a 350M-parameter language model to simulate 2D rigid body physics — from text alone.</b>
 </p>
-<p align="center"><i>Gallery of all 30 physics scenario types rendered from Pymunk simulations</i></p>
+
+<p align="center">
+  <a href="https://huggingface.co/AlexWortega/lfm2-scenarios"><img src="https://img.shields.io/badge/🤗%20Model-lfm2--scenarios-blue?style=for-the-badge" /></a>
+  <a href="https://huggingface.co/AlexWortega/lfm2-scenarios-ONNX"><img src="https://img.shields.io/badge/🤗%20ONNX-WebGPU%20%2F%20WASM-blue?style=for-the-badge" /></a>
+  <a href="https://huggingface.co/AlexWortega/lfm2-scenarios-GGUF"><img src="https://img.shields.io/badge/🤗%20GGUF-llama.cpp-blue?style=for-the-badge" /></a>
+  <a href="https://huggingface.co/datasets/AlexWortega/physics-scenarios-packed"><img src="https://img.shields.io/badge/🤗%20Dataset-physics--scenarios-green?style=for-the-badge" /></a>
+  <a href="https://github.com/AlexWortega/PhysicsLLMEngine"><img src="https://img.shields.io/badge/GitHub-PhysicsLLMEngine-black?style=for-the-badge&logo=github" /></a>
+</p>
+
+<p align="center">
+  <img src="assets/gallery.png" alt="All 30 physics scenario types" width="100%" />
+</p>
 
 ---
 
-## Highlights
+<h2 align="center">🚀 Key Numbers</h2>
 
-- **35 diverse physics scenarios** across 6 categories — from billiards to particle explosions
-- **900K training scenes** (180M frames) generated with Pymunk/Chipmunk2D
-- **6 held-out scenario types** never seen during training for zero-shot generalization evaluation
-- **Sub-pixel prediction accuracy** on ballistic and constrained motion
-- **Curriculum learning** over 5 difficulty stages for stable convergence
-- **Fully text-based** — no vision encoder, no graph neural network, just next-token prediction
+<p align="center">
+  <b>30 scenario types &nbsp;·&nbsp; 900K training scenes &nbsp;·&nbsp; 180M frames &nbsp;·&nbsp; ~582 GB of physics data</b><br/>
+  <b>Sub-pixel positional accuracy (&lt;0.2%) on zero-shot held-out scenarios</b>
+</p>
 
 ---
 
-## Scenario Zoo
+## ✨ Highlights
 
-We designed 30 scenario types organized into 6 categories, each testing different aspects of physics understanding:
+| | |
+|---|---|
+| 🎯 **30 diverse scenarios** | Billiards, towers, pendulums, angry birds, orbit, hourglass and more |
+| 📐 **Text-only input** | No vision encoder, no GNN — pure next-token prediction |
+| 🎓 **Curriculum learning** | 5 difficulty stages: 2-obj ballistics → 50-obj chaos |
+| 🔬 **Zero-shot generalization** | 6 held-out scenario types never seen during training |
+| 🌐 **Runs in the browser** | WebGPU/WASM via transformers.js — no server needed |
+| ⚡ **350M params** | Fine-tuned [LiquidAI/LFM2-350M](https://huggingface.co/LiquidAI/LFM2-350M) with LoRA |
 
-| Category | Scenarios | What it tests |
-|---|---|---|
-| **Collision** | billiards, bowling, explosion, head_on, projectile | Momentum transfer, elastic/inelastic collisions |
-| **Stacking** | tower, pyramid, dominos, jenga, bridge | Static equilibrium, toppling dynamics, structural stability |
-| **Ramp** | ramp_roll, ski_jump, funnel, plinko, marble_run | Gravity on inclines, projectile motion, channeling |
-| **Constraint** | pendulum, newtons_cradle, wrecking_ball, chain, seesaw | Pin joints, conservation laws, periodic motion |
-| **Minigame** | angry_birds, pinball, basketball, breakout, pong | Multi-body interaction, game-like dynamics |
-| **Complex** | avalanche, conveyor, hourglass, orbit, wind | Chaotic systems, external forces, N-body gravity |
+---
 
-<details>
-<summary><b>Click to see all 30 scenario GIFs</b></summary>
+## 🎬 Scenario Zoo
 
-### Collision & Ballistics
+<details open>
+<summary><b>All 30 Scenarios — click to collapse</b></summary>
+
+### 💥 Collision & Ballistics
 | Billiards | Bowling | Explosion | Head-on | Projectile |
-|---|---|---|---|---|
+|:---:|:---:|:---:|:---:|:---:|
 | ![](assets/gifs/01_billiards.gif) | ![](assets/gifs/02_bowling.gif) | ![](assets/gifs/03_explosion.gif) | ![](assets/gifs/04_head_on.gif) | ![](assets/gifs/05_projectile.gif) |
 
-### Stacking & Structural
+### 🏗️ Stacking & Structural
 | Bridge | Dominos | Jenga | Pyramid | Tower |
-|---|---|---|---|---|
+|:---:|:---:|:---:|:---:|:---:|
 | ![](assets/gifs/06_bridge.gif) | ![](assets/gifs/07_dominos.gif) | ![](assets/gifs/08_jenga.gif) | ![](assets/gifs/09_pyramid.gif) | ![](assets/gifs/10_tower.gif) |
 
-### Ramps & Terrain
+### 🎿 Ramps & Terrain
 | Funnel | Marble Run | Plinko | Ramp Roll | Ski Jump |
-|---|---|---|---|---|
+|:---:|:---:|:---:|:---:|:---:|
 | ![](assets/gifs/11_funnel.gif) | ![](assets/gifs/12_marble_run.gif) | ![](assets/gifs/13_plinko.gif) | ![](assets/gifs/14_ramp_roll.gif) | ![](assets/gifs/15_ski_jump.gif) |
 
-### Pendulums & Constraints
+### 🔗 Pendulums & Constraints
 | Chain | Newton's Cradle | Pendulum | Seesaw | Wrecking Ball |
-|---|---|---|---|---|
+|:---:|:---:|:---:|:---:|:---:|
 | ![](assets/gifs/16_chain.gif) | ![](assets/gifs/17_newtons_cradle.gif) | ![](assets/gifs/18_pendulum.gif) | ![](assets/gifs/19_seesaw.gif) | ![](assets/gifs/20_wrecking_ball.gif) |
 
-### Mini-game Physics
+### 🕹️ Mini-game Physics
 | Angry Birds | Basketball | Breakout | Pinball | Pong |
-|---|---|---|---|---|
+|:---:|:---:|:---:|:---:|:---:|
 | ![](assets/gifs/21_angry_birds.gif) | ![](assets/gifs/22_basketball.gif) | ![](assets/gifs/23_breakout.gif) | ![](assets/gifs/24_pinball.gif) | ![](assets/gifs/25_pong.gif) |
 
-### Complex & Chaotic
+### 🌀 Complex & Chaotic
 | Avalanche | Conveyor | Hourglass | Orbit | Wind |
-|---|---|---|---|---|
+|:---:|:---:|:---:|:---:|:---:|
 | ![](assets/gifs/26_avalanche.gif) | ![](assets/gifs/27_conveyor.gif) | ![](assets/gifs/28_hourglass.gif) | ![](assets/gifs/29_orbit.gif) | ![](assets/gifs/30_wind.gif) |
 
 </details>
 
 ---
 
-## Dataset
+## 🗃️ Dataset
 
-**1M scenes, 200M frames, ~582 GB of physics data.**
+**[AlexWortega/physics-scenarios-packed](https://huggingface.co/datasets/AlexWortega/physics-scenarios-packed)** · **[AlexWortega/physics-scenarios-raw](https://huggingface.co/datasets/AlexWortega/physics-scenarios-raw)**
 
-| Split | Scenes | Scenario Types | Seeds | Purpose |
-|---|---|---|---|---|
-| Train | 900,000 | 24 (seen) | 1,000,000+ | Supervised fine-tuning |
-| Val | 100,020 | 30 (all) | 5,000,000+ | In-distribution + generalization |
+| Split | Scenes | Scenario Types | Purpose |
+|---|---|---|---|
+| **Train** | 900,000 | 24 (seen) | Supervised fine-tuning |
+| **Val** | 100,020 | 30 (all) | In-dist + zero-shot generalization |
 
-Six scenario types are **held out from training entirely** to test zero-shot generalization:
+Six scenario types are **held out from training entirely**:
 
-| Held-out Type | Category | Complexity |
-|---|---|---|
-| pong | minigame | Simple |
-| bowling | collision | Simple |
-| ramp_roll | ramp | Simple |
-| angry_birds | minigame | Complex |
-| hourglass | complex | Complex |
-| newtons_cradle | constraint | Complex |
+> `pong` · `bowling` · `ramp_roll` · `angry_birds` · `hourglass` · `newtons_cradle`
 
-Each scene is a JSONL file: 1 header line (scene configuration) + 200 frame lines (object states).
-
-The dataset is available on Hugging Face:
-- [`AlexWortega/physics-scenarios-packed`](https://huggingface.co/datasets/AlexWortega/physics-scenarios-packed) — tar.gz packed, recommended for download
-- [`AlexWortega/physics-scenarios-raw`](https://huggingface.co/datasets/AlexWortega/physics-scenarios-raw) — raw JSONL files
-
-### Data Format
-
-The input format is fully text-based, designed for LLM tokenization:
+Each scene = 1 JSONL header + 200 frame lines. The model receives frames 1..N and must predict frame N+1 in plain text:
 
 ```
-Scene: 3 objects (2 circles, 1 rectangle). Gravity: (0.00, -981.00). Timestep: 0.0167.
-Scenario: pong (minigame), difficulty: 4
+Scene: Billiards: cue ball strikes a triangle of 21 balls.
+Gravity: (0.0, 0.0)
+Timestep: 0.01667
+Type: billiards  Difficulty: 3
 
-Objects:
-  obj_0: circle r=10.0 at (400.00, 300.00), density=1.0, friction=0.5
-  obj_1: circle r=15.0 at (200.00, 500.00), density=1.0, friction=0.5
-  obj_2: rect 80x10 at (400.00, 50.00), density=2.0, friction=0.8
-
-Static geometry: 4 segments (walls)
-Constraints: none
-
-Frame 1: 3 of 3 objects moving.
-  obj_0: pos=(405.12, 298.37), vel=(307.14, -97.81)
-  obj_1: pos=(195.23, 502.45), vel=(-286.22, 147.58)
-  obj_2: pos=(400.00, 50.00), vel=(0.00, 0.00)
-
-Frame 2: 3 of 3 objects moving.
-  obj_0: pos=(410.24, 296.74), vel=(307.14, -97.81)
+Frame 1: All objects at rest.
+  obj_0: pos=(500.0000, 300.0000), vel=(800.0000, 0.0000)
+  obj_1: pos=(522.8631, 286.8000), vel=(0.0000, 0.0000)
   ...
-```
 
-The model is trained to predict `Frame N+1` given the header and frames 1..N.
+Frame 2: Objects in motion.
+  obj_0: pos=(513.3340, 300.0000), vel=(800.0000, 0.0000)
+  ...
+
+Predict next frame:
+```
 
 ---
 
-## Model & Training
+## 🧠 Model & Training
+
+### Downloads
+
+| Format | Link | Size | Use case |
+|---|---|---|---|
+| Merged weights | [AlexWortega/lfm2-scenarios](https://huggingface.co/AlexWortega/lfm2-scenarios) | ~700 MB | Python / inference |
+| ONNX q4 | [AlexWortega/lfm2-scenarios-ONNX](https://huggingface.co/AlexWortega/lfm2-scenarios-ONNX) | 458 MB | Browser (WebGPU/WASM) |
+| GGUF Q4_K_M | [AlexWortega/lfm2-scenarios-GGUF](https://huggingface.co/AlexWortega/lfm2-scenarios-GGUF) | 216 MB | llama.cpp / local |
+| Base model | [LiquidAI/LFM2-350M](https://huggingface.co/LiquidAI/LFM2-350M) | — | Reference |
 
 ### Architecture
 
 | Component | Details |
 |---|---|
-| Base model | [LiquidAI/LFM2-350M](https://huggingface.co/LiquidAI/LFM2-350M) |
-| Fine-tuned model | [AlexWortega/lfm2-scenarios](https://huggingface.co/AlexWortega/lfm2-scenarios) |
-| ONNX (WebGPU) | [AlexWortega/lfm2-scenarios-ONNX](https://huggingface.co/AlexWortega/lfm2-scenarios-ONNX) |
-| GGUF (llama.cpp) | [AlexWortega/lfm2-scenarios-GGUF](https://huggingface.co/AlexWortega/lfm2-scenarios-GGUF) |
-| Fine-tuning | LoRA (r=32, alpha=64) via [Unsloth](https://github.com/unslothai/unsloth) |
-| Sequence length | 8192 tokens |
+| Base | LiquidAI/LFM2-350M (Liquid Foundation Model) |
+| Fine-tuning | LoRA r=32 α=64 via [Unsloth](https://github.com/unslothai/unsloth) |
+| Context | 8 192 tokens |
 | Precision | bfloat16 |
-| Optimizer | AdamW, lr=2e-4 |
-| Batch size | 4 (gradient accumulation 8 = effective 32) |
+| Optimizer | AdamW 8-bit, lr=2e-4 |
+| Batch | 4 × grad-accum 8 = effective 32 |
 
 ### Curriculum Learning
 
-Training progresses through **5 difficulty stages**, from simple 2-object ballistic scenes to chaotic 50+ object scenarios:
-
 ```
-Stage 0 (difficulty 1): Simple scenes, 2-5 objects    → loss 0.562
-Stage 1 (difficulty 2): Moderate scenes, 5-15 objects  → loss 0.609
-Stage 2 (difficulty 3): Complex scenes, 10-30 objects  → loss 0.622 (training...)
-Stage 3 (difficulty 4): Hard scenes, 20-40 objects     → (pending)
-Stage 4 (difficulty 5): Extreme scenes, 30-50+ objects → (pending)
+Stage 0  difficulty 1  2–5 obj     50 000 examples  → loss 0.562 ✅
+Stage 1  difficulty 2  5–15 obj    50 000 examples  → loss 0.609 ✅
+Stage 2  difficulty 3  10–30 obj   50 000 examples  → loss 0.622 ✅
+Stage 3  difficulty 4  20–40 obj   50 000 examples  → (training)
+Stage 4  difficulty 5  30–50+ obj  50 000 examples  → (pending)
 ```
 
-Each stage trains for 1 epoch on up to 50,000 examples. The curriculum dramatically improves convergence — the model learns basic kinematics before tackling multi-body chaos.
+### Infrastructure
 
-### Training Infrastructure
-
-- **GPU**: NVIDIA RTX A6000 (48 GB VRAM)
-- **Training time**: ~7-14 hours per curriculum stage
-- **Data generation**: 22-core CPU, Pymunk engine, ~29 minutes for 900K scenes
-- **Logging**: Weights & Biases
+- **GPU** — NVIDIA RTX A6000 (48 GB VRAM)
+- **Training time** — ~7–14 h per curriculum stage
+- **Data generation** — 22-core CPU, Pymunk, ~29 min for 900K scenes
+- **Logging** — Weights & Biases
 
 ---
 
-## Results: Zero-Shot Physics Prediction
+## 📊 Results: Zero-Shot Physics Prediction
 
-We evaluate on **held-out scenario types the model has never seen during training**. Given 10 context frames, the model predicts the next 5 frames autoregressively.
+Evaluated on 6 held-out scenario types the model **never saw during training**.
 
-### Pong (Unseen) — Sub-pixel Accuracy on Ballistic Motion
-
-```
-GROUND TRUTH:  obj_0: pos=(339.8344, 143.2513), vel=(-531.0383, -319.9974)
-PREDICTION:    obj_0: pos=(339.7855, 142.0493), vel=(-531.0383, -319.9974)
-                              Δx=0.05       Δy=1.20        velocity: exact match
-```
-
-The model predicts positions within **~1 pixel** and recovers velocities exactly. On an 800x600 canvas, this is **<0.2% positional error**.
-
-### Pong (Unseen, easy) — Two-Body Tracking
+### Pong — Sub-pixel accuracy on ballistic motion
 
 ```
-GROUND TRUTH:  obj_0: pos=(296.5453, 417.0926), vel=(-372.0115, 270.5687)
-PREDICTION:    obj_0: pos=(296.4944, 417.4426), vel=(-372.0115, 270.5687)
-                              Δx=0.05       Δy=0.35        velocity: exact match
-
-GROUND TRUTH:  obj_1: pos=(440.3971, 222.4326), vel=(389.9920, -243.9391)
-PREDICTION:    obj_1: pos=(438.2972, 222.4372), vel=(389.9920, -243.9391)
-                              Δx=2.10       Δy=0.005       velocity: exact match
+GROUND TRUTH   obj_0: pos=(339.8344, 143.2513)  vel=(-531.0383, -319.9974)
+PREDICTION     obj_0: pos=(339.7855, 142.0493)  vel=(-531.0383, -319.9974)
+                            Δx = 0.05  Δy = 1.20          velocity: exact ✓
 ```
 
-### Bowling (Unseen) — Multi-Body Collision Cascade
+**< 0.2% positional error** on an 800 × 600 canvas.
 
-The model handles 11 objects with pin scattering:
+### Bowling — Multi-body collision cascade (11 objects)
 
 ```
-GROUND TRUTH:  obj_3: pos=(600.8966, 25.1189), vel=(0.0000, -179.8500)
-PREDICTION:    obj_3: pos=(600.8966, 25.7189), vel=(0.0000, -179.8500)
-                              Δx=0.00       Δy=0.60        velocity: exact match
+GROUND TRUTH   obj_3:  pos=(600.8966, 25.1189)  vel=(  0.0000, -179.8500)
+PREDICTION     obj_3:  pos=(600.8966, 25.7189)  vel=(  0.0000, -179.8500)
+                            Δx = 0.00  Δy = 0.60          velocity: exact ✓
 
-GROUND TRUTH:  obj_10: pos=(160.2332, 71.8437), vel=(264.8960, -0.0000)
-PREDICTION:    obj_10: pos=(160.2332, 71.8594), vel=(264.8960, -0.0000)
-                              Δx=0.00       Δy=0.02        velocity: exact match
+GROUND TRUTH   obj_10: pos=(160.2332, 71.8437)  vel=(264.8960,    0.0000)
+PREDICTION     obj_10: pos=(160.2332, 71.8594)  vel=(264.8960,    0.0000)
+                            Δx = 0.00  Δy = 0.02          velocity: exact ✓
 ```
 
-### Key Observations
+### Key observations
 
-1. **Velocities are learned near-perfectly** — the model extracts the linear relationship between position deltas and velocity
-2. **Positional errors are sub-pixel** for most objects, even in unseen scenarios
-3. **Multi-body scenes work** — bowling with 11 objects, angry_birds with 28+ objects
-4. **The model generalizes** to scenario types it has never seen, by composing learned physics primitives (gravity, collisions, constraints)
+1. **Velocities recovered near-perfectly** — model learns the linear position-velocity relationship
+2. **Sub-pixel positional errors** even on multi-body collisions in unseen scenarios
+3. **Generalizes compositionally** — applies learned primitives (gravity, impulse, constraints) to new scenario types
 
 ---
 
-## Architecture Overview
+## 🌐 Browser Demo
 
-```
-┌─────────────────────────────────────────────────┐
-│                 Data Generation                  │
-│  Pymunk/Chipmunk2D → 30 scenario types → JSONL  │
-│  900K train + 100K val scenes (200 frames each)  │
-└─────────────────────┬───────────────────────────┘
-                      │
-                      ▼
-┌─────────────────────────────────────────────────┐
-│              Curriculum Learning                 │
-│  Stage 0 (easy) → Stage 4 (hard)                │
-│  50K examples per stage, 1 epoch each            │
-└─────────────────────┬───────────────────────────┘
-                      │
-                      ▼
-┌─────────────────────────────────────────────────┐
-│          LFM2-350M + LoRA Fine-tuning           │
-│  Text-in → Text-out (next frame prediction)      │
-│  8192 token context window                       │
-└─────────────────────┬───────────────────────────┘
-                      │
-                      ▼
-┌─────────────────────────────────────────────────┐
-│           Autoregressive Evaluation              │
-│  Feed prediction back as input → multi-step      │
-│  rollout with divergence detection               │
-└─────────────────────────────────────────────────┘
-```
+Run the model **entirely in your browser** — no Python, no GPU, no server:
 
----
-
-## Project Structure
-
-```
-PhysicsLLMEngine/
-├── src/
-│   ├── physics/
-│   │   ├── scenario_generator.py   # All 30 scenario generators
-│   │   ├── scenario_registry.py    # @register_scenario pattern
-│   │   ├── simulation.py           # Pymunk wrapper
-│   │   └── objects.py              # Body/shape factories
-│   ├── data/
-│   │   ├── formats.py              # JSONL text serialization
-│   │   └── exporter.py             # Scene → file pipeline
-│   ├── training/
-│   │   ├── curriculum.py           # Difficulty-based curriculum
-│   │   └── data_loader.py          # Physics-aware data loading
-│   └── evaluation/
-│       ├── rollout.py              # Autoregressive multi-step evaluator
-│       ├── metrics.py              # MSE, energy/momentum conservation
-│       └── runner.py               # Full evaluation pipeline
-├── scripts/
-│   ├── train_finetune.py           # LFM2 + LoRA training
-│   ├── train_scratch.py            # GPT from-scratch baseline
-│   ├── generate_scenarios_dataset.py
-│   └── run_evaluation.py
-├── browser_demo/                   # WebGPU browser simulation demo
-│   ├── src/
-│   │   ├── transformersEngine.ts   # HF transformers.js + ONNX inference
-│   │   ├── streamClient.ts         # Autoregressive rollout logic
-│   │   ├── App.tsx                 # React UI (canvas + token stream)
-│   │   └── promptFormat.ts         # Text prompt serialization
-│   └── backend/
-│       ├── server.py               # FastAPI scenario server
-│       └── examples/               # 30 bundled demo scenarios (JSONL)
-├── inference/                      # Local Python inference & eval tools
-│   ├── repro.py                    # Single-step local repro
-│   ├── multistep.py                # Multi-step rollout diagnostics
-│   ├── bench.py                    # Speed benchmark (ONNX)
-│   ├── make_gifs.py                # Batch 200-frame rollout → GIFs
-│   └── patch_onnx_v2.py            # Patch LoRA weights into ONNX graph
-└── assets/                         # Scenario GIFs and gallery
-```
-
----
-
-## Quick Start
-
-### Run the browser demo locally
 ```bash
 cd browser_demo
 npm install
-npm run dev         # Vite dev server → http://localhost:5173
-# (backend optional — scenarios are bundled)
+npm run dev     # → http://localhost:5173
 ```
-The demo loads [AlexWortega/lfm2-scenarios-ONNX](https://huggingface.co/AlexWortega/lfm2-scenarios-ONNX) (458 MB q4) via WebGPU/WASM directly in the browser.
 
-### Local inference (Python / GGUF)
+The demo fetches [lfm2-scenarios-ONNX](https://huggingface.co/AlexWortega/lfm2-scenarios-ONNX) (458 MB, q4) from HF CDN,
+runs autoregressive rollout via WebGPU (or WASM fallback), and renders
+each predicted frame on a Konva canvas with a live token-stream sidebar.
+
+**Source:** [`browser_demo/`](https://github.com/AlexWortega/PhysicsLLMEngine/tree/main/browser_demo)
+
+---
+
+## 🖥️ Local Inference
+
 ```bash
 pip install llama-cpp-python matplotlib pillow
-# model: https://huggingface.co/AlexWortega/lfm2-scenarios-GGUF
+
 cd inference
-python repro.py billiards 5            # single-step repro
-python multistep.py orbit 50           # 50-frame rollout
-python make_gifs.py --frames 200 --out ./gifs  # all 30 demos → GIFs
+
+# Single-step repro (mirrors browser prompt format exactly)
+python repro.py billiards 5
+
+# Multi-step rollout with drift/parse diagnostics
+python multistep.py orbit 50
+
+# Benchmark 1-frame vs 4-frame prompt speed (ONNX)
+python bench.py
+
+# Render all 30 demo scenarios × 200 frames → animated GIFs
+python make_gifs.py --frames 200 --out ./gifs
 ```
 
-### Generate a dataset
+**Source:** [`inference/`](https://github.com/AlexWortega/PhysicsLLMEngine/tree/main/inference)
+
+---
+
+## 🏃 Training & Evaluation
+
 ```bash
+# Generate dataset
 python scripts/generate_scenarios_dataset.py \
   --output-dir data_scenarios/train \
-  --num-scenes-per-type 1000 \
-  --num-workers 16
-```
+  --num-scenes-per-type 37500 \
+  --num-workers 22
 
-### Train with curriculum learning
-```bash
+# Train with curriculum
 python scripts/train_finetune.py \
   --data-dir data_scenarios/train \
   --output-dir checkpoints/lfm2 \
   --curriculum-stages 5 \
   --epochs-per-stage 1 \
-  --batch-size 4 \
-  --grad-accum 8 \
-  --lr 2e-4
-```
+  --batch-size 4 --grad-accum 8 --lr 2e-4
 
-### Evaluate on held-out scenarios
-```bash
+# Evaluate on held-out scenarios
 python scripts/run_evaluation.py \
   --model finetune \
   --checkpoint checkpoints/lfm2/stage4/adapter \
@@ -353,27 +257,89 @@ python scripts/run_evaluation.py \
 
 ---
 
-## What's Next
+## 📁 Project Structure
 
-- Complete curriculum stages 3-4 (hard + extreme difficulty)
-- Full autoregressive rollout evaluation (100+ step trajectories)
-- GPT-from-scratch baseline comparison (custom architecture with muP scaling)
-- Energy and momentum conservation analysis
-- q4f16 ONNX for faster WebGPU inference (blocked by Cast op type constraint)
+```
+PhysicsLLMEngine/
+├── src/
+│   ├── physics/
+│   │   ├── scenario_generator.py   # All 30 scenario generators
+│   │   ├── scenario_registry.py    # @register_scenario decorator
+│   │   ├── simulation.py           # Pymunk wrapper
+│   │   └── objects.py              # Body/shape factories
+│   ├── data/
+│   │   ├── formats.py              # JSONL text serialization
+│   │   └── exporter.py             # Scene → file pipeline
+│   ├── training/
+│   │   ├── curriculum.py           # Difficulty-based curriculum scanner
+│   │   └── data_loader.py          # Physics-aware data loading
+│   └── evaluation/
+│       ├── rollout.py              # Autoregressive multi-step evaluator
+│       └── runner.py               # Full evaluation pipeline CLI
+├── scripts/
+│   ├── train_finetune.py           # LFM2 + LoRA entry point
+│   ├── train_scratch.py            # GPT from-scratch baseline
+│   ├── generate_scenarios_dataset.py
+│   └── run_evaluation.py
+├── browser_demo/                   # 🌐 WebGPU browser demo
+│   ├── src/
+│   │   ├── transformersEngine.ts   # transformers.js ONNX inference
+│   │   ├── streamClient.ts         # Autoregressive rollout + fitPrompt
+│   │   ├── App.tsx                 # React UI (canvas + token stream)
+│   │   └── promptFormat.ts         # Text serialization (mirrors training)
+│   └── backend/
+│       ├── server.py               # FastAPI scenario server
+│       └── examples/               # 30 bundled JSONL demo scenarios
+├── inference/                      # 🖥️ Local Python inference tools
+│   ├── repro.py                    # Single-step repro
+│   ├── multistep.py                # Multi-step rollout diagnostics
+│   ├── bench.py                    # ONNX speed benchmark
+│   ├── make_gifs.py                # Batch rollout → GIFs
+│   └── patch_onnx_v2.py            # Patch LoRA weights into ONNX graph
+└── assets/
+    ├── gallery.png                 # Scenario gallery overview
+    └── gifs/                       # 30 scenario demo GIFs
+```
 
 ---
 
-## Citation
+## 🗺️ What's Next
+
+- [ ] Complete curriculum stages 3–4 (hard + extreme difficulty)
+- [ ] Full 200-step autoregressive rollout evaluation on all 30 scenarios
+- [ ] GPT-from-scratch baseline with muP scaling
+- [ ] Energy & momentum conservation analysis
+- [ ] q4f16 ONNX for 2× faster WebGPU inference
+
+---
+
+## 📄 Citation
 
 ```bibtex
 @software{physicslmengine2026,
-  title={PhysicsLLMEngine: Learning Rigid Body Dynamics via Next-Token Prediction},
-  author={Wortega, Alex},
-  year={2026},
-  url={https://github.com/AlexWortega/PhysicsLLMEngine}
+  title   = {PhysicsLLMEngine: Learning Rigid Body Dynamics via Next-Token Prediction},
+  author  = {Wortega, Alex},
+  year    = {2026},
+  url     = {https://github.com/AlexWortega/PhysicsLLMEngine}
 }
 ```
 
-## License
+---
 
-MIT
+## 🔗 Links
+
+| | |
+|---|---|
+| 🤗 Merged model | [AlexWortega/lfm2-scenarios](https://huggingface.co/AlexWortega/lfm2-scenarios) |
+| 🤗 ONNX (WebGPU) | [AlexWortega/lfm2-scenarios-ONNX](https://huggingface.co/AlexWortega/lfm2-scenarios-ONNX) |
+| 🤗 GGUF (llama.cpp) | [AlexWortega/lfm2-scenarios-GGUF](https://huggingface.co/AlexWortega/lfm2-scenarios-GGUF) |
+| 🤗 Dataset (packed) | [AlexWortega/physics-scenarios-packed](https://huggingface.co/datasets/AlexWortega/physics-scenarios-packed) |
+| 🤗 Dataset (raw) | [AlexWortega/physics-scenarios-raw](https://huggingface.co/datasets/AlexWortega/physics-scenarios-raw) |
+| 🌐 Browser demo | [browser_demo/](https://github.com/AlexWortega/PhysicsLLMEngine/tree/main/browser_demo) |
+| 🖥️ Inference scripts | [inference/](https://github.com/AlexWortega/PhysicsLLMEngine/tree/main/inference) |
+| ⚡ Base model | [LiquidAI/LFM2-350M](https://huggingface.co/LiquidAI/LFM2-350M) |
+| 🛠️ Training framework | [Unsloth](https://github.com/unslothai/unsloth) |
+
+---
+
+<p align="center">MIT License &nbsp;·&nbsp; ICML 2026</p>
