@@ -1,0 +1,9 @@
+node_modules
+dist
+.vite
+.git
+*.log
+__pycache__
+*.pyc
+.venv
+scripts
