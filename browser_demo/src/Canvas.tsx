@@ -148,6 +148,9 @@ export function Canvas({
 
   function handleDown(e: KonvaEventObject<MouseEvent | TouchEvent>) {
     if (tool === "view") return;
+    // Stop the page from pan-scrolling under a touch when the user is drawing.
+    const native = (e as unknown as { evt?: Event }).evt;
+    native?.preventDefault?.();
     const p = pointer(e);
     if (!p) return;
     setDraftStart(p);

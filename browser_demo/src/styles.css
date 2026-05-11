@@ -556,3 +556,213 @@ input[type="text"] {
   color: #475569;
   margin-right: 8px;
 }
+
+/* ---------- Mobile / narrow-viewport layout ---------- */
+
+.mobile-drawer-btn,
+.drawer-close,
+.mobile-actionbar {
+  display: none;
+}
+
+.app.is-mobile {
+  grid-template-columns: 1fr;
+  grid-template-rows: 56px 1fr 64px;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.app.is-mobile .topbar {
+  grid-column: 1;
+  padding: 0 12px;
+  gap: 10px;
+  overflow: hidden;
+}
+.app.is-mobile .topbar .title {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.app.is-mobile .topbar .badge {
+  font-size: 10px;
+  padding: 2px 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 40vw;
+}
+.app.is-mobile .topbar .download-bar {
+  width: 110px;
+  height: 16px;
+  font-size: 10px;
+}
+.app.is-mobile .topbar .status {
+  display: none;
+}
+
+.app.is-mobile .mobile-drawer-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.app.is-mobile .canvas-wrap {
+  grid-column: 1;
+  padding: 12px 12px 0;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.app.is-mobile .canvas-card {
+  width: 100% !important;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.app.is-mobile .playback-hud {
+  top: 8px;
+  left: 8px;
+  font-size: 10px;
+  padding: 4px 8px;
+  gap: 6px;
+}
+
+.app.is-mobile .boot-card {
+  padding: 22px 20px;
+  max-width: 92vw;
+}
+.app.is-mobile .boot-title {
+  font-size: 22px;
+}
+.app.is-mobile .boot-sub {
+  font-size: 13px;
+}
+.app.is-mobile .boot-button {
+  padding: 14px;
+  font-size: 14px;
+}
+
+/* Side panels become full-height drawers that slide up from the bottom on
+   mobile. Absolutely positioned so toggling them never reflows the canvas. */
+.app.is-mobile .sidebar,
+.app.is-mobile .right-panel {
+  position: fixed;
+  inset: 56px 0 0 0;
+  z-index: 30;
+  background: var(--panel);
+  padding: 56px 16px 96px;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 220ms ease;
+  box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.5);
+}
+.app.is-mobile .sidebar.mobile-open,
+.app.is-mobile .right-panel.mobile-open {
+  transform: translateY(0);
+}
+.app.is-mobile .sidebar.mobile-hidden,
+.app.is-mobile .right-panel.mobile-hidden {
+  pointer-events: none;
+}
+
+.app.is-mobile .drawer-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: 16px;
+  z-index: 1;
+}
+
+.app.is-mobile .mobile-actionbar {
+  grid-column: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  gap: 8px;
+  padding: 10px 12px;
+  padding-bottom: max(10px, env(safe-area-inset-bottom));
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+  align-items: center;
+  z-index: 20;
+}
+.mobile-action {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.mobile-action.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0b0d12;
+  border: none;
+}
+.mobile-action.danger {
+  background: var(--danger);
+  color: #fff;
+  border: none;
+}
+.mobile-action:disabled {
+  opacity: 0.5;
+}
+
+.app.is-mobile .tool-group {
+  grid-template-columns: repeat(5, 1fr);
+}
+.app.is-mobile .prompt-stream {
+  max-height: 30vh;
+}
+.app.is-mobile .token-stream {
+  max-height: 25vh;
+}
+.app.is-mobile .log {
+  max-height: 25vh;
+}
+
+/* Tap-friendly sizing on coarse pointers regardless of viewport */
+@media (hover: none) and (pointer: coarse) {
+  .tool-btn {
+    padding: 12px 6px;
+    font-size: 12px;
+  }
+  select,
+  input[type="text"] {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  .primary,
+  .secondary {
+    padding: 14px;
+    font-size: 14px;
+  }
+}
+
+/* Narrow-but-not-touch fallback (split-screen / tablet landscape) */
+@media (max-width: 900px) {
+  html,
+  body,
+  #root {
+    overflow: hidden;
+  }
+}

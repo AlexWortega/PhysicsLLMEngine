@@ -1,7 +1,7 @@
 import { memo, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, type ExtraObject, type ExtraWall, type Tool } from "./Canvas";
 import { simulateStream, fetchScenarios, prepareModel } from "./streamClient";
-import { LAST_LOAD_INFO } from "./transformersEngine";
+import { LAST_LOAD_INFO, isMobileDevice } from "./transformersEngine";
 import type {
   FrameSnapshot,
   ScenarioBundle,
@@ -11,6 +11,38 @@ import type {
 
 const CANVAS_W = 720;
 const CANVAS_H = 560;
+const MOBILE_BREAKPOINT = 900;
+
+function useViewportSize() {
+  const [size, setSize] = useState<{ w: number; h: number; mobile: boolean }>(
+    () => {
+      if (typeof window === "undefined") {
+        return { w: CANVAS_W, h: CANVAS_H, mobile: false };
+      }
+      return {
+        w: window.innerWidth,
+        h: window.innerHeight,
+        mobile: window.innerWidth < MOBILE_BREAKPOINT || isMobileDevice(),
+      };
+    },
+  );
+  useEffect(() => {
+    function onResize() {
+      setSize({
+        w: window.innerWidth,
+        h: window.innerHeight,
+        mobile: window.innerWidth < MOBILE_BREAKPOINT || isMobileDevice(),
+      });
+    }
+    window.addEventListener("resize", onResize);
+    window.addEventListener("orientationchange", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("orientationchange", onResize);
+    };
+  }, []);
+  return size;
+}
 
 interface LogLine {
   t: number;
@@ -18,9 +50,23 @@ interface LogLine {
 }
 
 export function App() {
+  const viewport = useViewportSize();
+  const isMobile = viewport.mobile;
+  // On mobile/narrow viewports the canvas takes the full width minus padding,
+  // and height is bounded to a 4:3-ish aspect of the available width so the
+  // controls beneath stay visible without scrolling.
+  const canvasW = isMobile
+    ? Math.max(280, Math.min(viewport.w - 24, 540))
+    : CANVAS_W;
+  const canvasH = isMobile
+    ? Math.max(220, Math.round(canvasW * (CANVAS_H / CANVAS_W)))
+    : CANVAS_H;
   const [scenarios, setScenarios] = useState<ScenarioBundle[]>([]);
   const [selectedName, setSelectedName] = useState<string>("");
   const [tool, setTool] = useState<Tool>("view");
+  const [mobilePanel, setMobilePanel] = useState<"controls" | "context" | null>(
+    null,
+  );
   const [extras, setExtras] = useState<{
     objects: ExtraObject[];
     walls: ExtraWall[];
@@ -306,14 +352,22 @@ export function App() {
   ];
 
   return (
-    <div className="app">
+    <div className={`app ${isMobile ? "is-mobile" : ""}`}>
       <header className="topbar">
         <span className="title">Physics LLM</span>
         <span
           className={`badge ${LAST_LOAD_INFO?.device === "webgpu" ? "good" : "warn"}`}
           title={
             LAST_LOAD_INFO
-              ? `device=${LAST_LOAD_INFO.device} · dtype=${LAST_LOAD_INFO.dtype} · webgpu=${LAST_LOAD_INFO.webgpuAvailable}`
+              ? `device=${LAST_LOAD_INFO.device} · dtype=${LAST_LOAD_INFO.dtype} · webgpu=${LAST_LOAD_INFO.webgpuAvailable}` +
+                (LAST_LOAD_INFO.attempts && LAST_LOAD_INFO.attempts.length > 1
+                  ? `\n\nAttempts:\n${LAST_LOAD_INFO.attempts
+                      .map(
+                        (a) =>
+                          `· ${a.device}+${a.dtype}: ${a.error ? "FAIL — " + a.error : "OK"}`,
+                      )
+                      .join("\n")}`
+                  : "")
               : "model not loaded yet"
           }
         >
@@ -322,7 +376,7 @@ export function App() {
             ? `${LAST_LOAD_INFO.device.toUpperCase()} · ${LAST_LOAD_INFO.dtype}`
             : "loading…"}
         </span>
-        {LAST_LOAD_INFO && !LAST_LOAD_INFO.webgpuAvailable ? (
+        {LAST_LOAD_INFO && !LAST_LOAD_INFO.webgpuAvailable && !isMobile ? (
           <span
             className="warn-banner"
             title="WebGPU not available — falling back to WASM (slower). Use Chrome/Edge or enable chrome://flags/#enable-unsafe-webgpu."
@@ -331,6 +385,17 @@ export function App() {
           </span>
         ) : null}
         <div className="spacer" />
+        {isMobile ? (
+          <button
+            className="mobile-drawer-btn"
+            onClick={() =>
+              setMobilePanel(mobilePanel === "controls" ? null : "controls")
+            }
+            aria-label="Open controls"
+          >
+            ☰
+          </button>
+        ) : null}
         {downloadPct !== null || (status === "generating" && !modelReady) ? (
           <div
             className="download-bar"
@@ -363,7 +428,18 @@ export function App() {
         <span className={`status ${status}`}>{statusMsg}</span>
       </header>
 
-      <aside className="sidebar">
+      <aside
+        className={`sidebar${isMobile ? (mobilePanel === "controls" ? " mobile-open" : " mobile-hidden") : ""}`}
+      >
+        {isMobile ? (
+          <button
+            className="drawer-close"
+            onClick={() => setMobilePanel(null)}
+            aria-label="Close panel"
+          >
+            ✕
+          </button>
+        ) : null}
         <section>
           <h3>Scenario</h3>
           <select
@@ -470,10 +546,10 @@ export function App() {
       </aside>
 
       <main className="canvas-wrap">
-        <div className="canvas-card">
+        <div className="canvas-card" style={{ width: canvasW, height: canvasH }}>
           <Canvas
-            width={CANVAS_W}
-            height={CANVAS_H}
+            width={canvasW}
+            height={canvasH}
             header={header}
             liveFrame={liveFrame}
             extras={extras}
@@ -502,8 +578,15 @@ export function App() {
                 <div className="boot-sub">
                   LFM2-350M fine-tuned on 2D rigid-body physics. Runs entirely in
                   your browser via{" "}
-                  <strong>WebGPU</strong> (with WASM fallback).
+                  <strong>{isMobile ? "WASM" : "WebGPU"}</strong>
+                  {isMobile ? " (mobile fallback)" : " (with WASM fallback)"}.
                 </div>
+                {isMobile ? (
+                  <div className="boot-note" style={{ color: "var(--warn)" }}>
+                    ⚠ On phones the model runs on CPU/WASM and may take a few
+                    minutes per frame. Try a desktop with WebGPU for full speed.
+                  </div>
+                ) : null}
                 {bootStarted && downloadPct !== null ? (
                   <>
                     <div className="boot-bar">
@@ -529,7 +612,18 @@ export function App() {
         </div>
       </main>
 
-      <aside className="right-panel">
+      <aside
+        className={`right-panel${isMobile ? (mobilePanel === "context" ? " mobile-open" : " mobile-hidden") : ""}`}
+      >
+        {isMobile ? (
+          <button
+            className="drawer-close"
+            onClick={() => setMobilePanel(null)}
+            aria-label="Close panel"
+          >
+            ✕
+          </button>
+        ) : null}
         <h3>
           Context
           {promptStep ? (
@@ -599,6 +693,40 @@ export function App() {
           </a>
         </p>
       </aside>
+
+      {isMobile && modelReady ? (
+        <div className="mobile-actionbar">
+          <button
+            className="mobile-action"
+            onClick={() =>
+              setMobilePanel(mobilePanel === "controls" ? null : "controls")
+            }
+          >
+            ⚙ Controls
+          </button>
+          {status === "generating" ? (
+            <button className="mobile-action danger" onClick={cancel}>
+              ■ Cancel
+            </button>
+          ) : (
+            <button
+              className="mobile-action primary"
+              onClick={runSimulate}
+              disabled={!header}
+            >
+              ▶ Simulate
+            </button>
+          )}
+          <button
+            className="mobile-action"
+            onClick={() =>
+              setMobilePanel(mobilePanel === "context" ? null : "context")
+            }
+          >
+            ☷ Context
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }
